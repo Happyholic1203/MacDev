@@ -17,7 +17,7 @@ brew install ack apktool arping atk autoconf automake bash-completion \
     postgresql ppl011 qt re2c readline reattach-to-user-namespace \
     rlwrap scons socat sphinx sqlite sqlmap ssdeep sshfs texi2html tmux \
     tor tree unar unixodbc valgrind wget wireshark wxmac wxpython x264 xvid \
-    xz yasm zlib z3 fakeroot
+    xz yasm zlib z3 fakeroot the_silver_searcher
 
 brew install python
 brew install vim --override-system-vi
