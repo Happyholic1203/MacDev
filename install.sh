@@ -1,8 +1,40 @@
 #!/bin/bash
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if ! which brew; then
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
 brew update
+
+# essentials
+brew install binutils curl doxygen gdb graphviz irssi openssl pandoc \
+    reattach-to-user-namespace tmux socat sphinx sqlite sqlmap tor tree wget \
+    xz z3 gpg python readline
+
+wget -qO- https://bootstrap.pypa.io/get-pip.py > /tmp/get-pip.py
+python /tmp/get-pip.py --user
+
+pip install ipython pwntools
+
+# TODO: ipython
+# TODO: python libraries
+echo "Enabling readline in IPython interactive shell"
+ipython profile create
+sed -i.bak "s/^#c\.TerminalInteractiveShell\.editing_mode/c.TerminalInteractiveShell.editing_mode = 'vi'/g" ~/.ipython/profile_default/ipython_config.py
+rm -f ~/.ipython/profile_default/ipython_config.py.bak
+
+# install Xcode
+
+# install watermark pro
+
+# install chrome, firefox, mantra, burpsuite
+# hopper
+# install radare2
+
+# brew cask install macdown wireshark
+
+# after installing Xcode
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
 brew install ack apktool arping atk autoconf automake bash-completion \
     binutils bison27 brew-cask cairo cloog-ppl015 cmake cscope curl \
@@ -57,8 +89,7 @@ brew install --enable-cxx gcc49
 
 npm install jsduck
 
-# install LINE6 Monkey
 # install alfred2 workflows for developers: https://github.com/willfarrell/alfred-workflows
-# setup github in Alfred2
-# - github username Happyholic1203
-# - github password <generated_token>
+
+echo "Starting up locate db, I need your root password here"
+sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
