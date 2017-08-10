@@ -93,3 +93,4 @@ npm install jsduck
 
 echo "Starting up locate db, I need your root password here"
 sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+# install tunnelblick

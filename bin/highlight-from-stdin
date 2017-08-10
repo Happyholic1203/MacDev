@@ -4,7 +4,7 @@ if [ -z "$1" ]; then
     echo "Usage: $0 <syntax> [style]" >&2
     echo "Example: $0 bash" >&2
     echo "Available styles:" >&2
-    for x in /usr/local/Cellar/highlight/3.35/share/highlight/themes/*; do
+    for x in `brew --prefix highlight`/share/highlight/themes/*; do
         echo $(basename ${x%%.theme}) >&2
     done
     exit 1
