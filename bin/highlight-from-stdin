@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 <syntax> [style]" >&2
+    echo "Example: $0 bash" >&2
+    echo "Available styles:" >&2
+    for x in /usr/local/Cellar/highlight/3.35/share/highlight/themes/*; do
+        echo $(basename ${x%%.theme}) >&2
+    done
+    exit 1
+fi
+
+syntax="$1"
+
+style=github
+if [ -n "$2" ]; then
+    style="$2"
+fi
+
+# highlight -O rtf -S $syntax -K 24 -k Courier-Bold --style $style | pbcopy
+highlight -O rtf -S $syntax -K 13 -k Monaco --style $style | pbcopy
